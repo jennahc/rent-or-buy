@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://8813-107-167-176-121.ngrok-free.app/result -->
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Property List</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		.w3-top {
+		  position: fixed;
+		  top: 0;
+		  width: 100%;
+		  z-index: 2;
+		  background-color: #222
+		}
+		
+        body {
+			background-color: #222;
+			color: #eee;
+			font-family: "Lato", sans-serif
+		}
+
+		table {
+			width: 100%;
+		}
+
+		table thead th:first-child {
+			text-align: left;
+		}
+
+		table thead td:not(:first-child) {
+			text-align: center;
+		}
+
+		table tbody td:first-child {
+			text-align: left;
+		}
+
+		table tbody td:not(:first-child) {
+			text-align: center;
+		}
+
+        .recommendation-text {
+            font-size: 1.2em;
+        }
+
+        .recommendation-section {
+            background-color: #444;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+        }
+
+        .rental-amount {
+            background-color: #336699;
+            padding: 5px;
+            border-radius: 5px;
+            color: #eee;
+        }
+
+        .w3-container {
+            padding-top: 46.5px;
+        }
+
+	</style>
+</head>
+
+<body>
+	<div id="StayFocusd-infobar" style="display: none; top: 12884px;">
+		<img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
+		<span id="StayFocusd-infobar-msg"></span>
+		<span id="StayFocusd-infobar-links">
+			<a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a id="StayFocusd-infobar-hide">hide once</a>
+		</span>
+	</div>
+
+
+
+	<div class="w3-top">
+		<div class="w3-bar w3-nlack w3-card">
+			<a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
+				href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i
+					class="fa fa-bars"></i></a>
+			<a href="/index" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+			<a href="/input_form" class="w3-bar-item w3-button w3-padding-large">INPUT FORM</a>
+			<a href="/city_visuals" class="w3-bar-item w3-button w3-padding-large">CITY DATA VISUALS</a>
+			<a href="/appreciation" class="w3-bar-item w3-button w3-padding-large">APPRECIATION CALCULATOR</a>
+			<a href="/fred" class="w3-bar-item w3-button w3-padding-large">REAL ESTATE DATA</a>
+		</div>
+	</div>
+
+	<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="input form">
+
+		<h2 class="w3-wide">Working in Big Cities: Rent or Buy</h2>
+
+    <div class="recommendation-section">
+        <h2 class="w3-wide" style="border-bottom: solid 2px white;">Rent or Buy Recommendation</h2>
+        <p style="padding: 20px;">{{ recommendation }}</p>
+        <p style="padding: 20px;">According to your budget, your suitable monthly rental would be: <span class="rental-amount">${{rent_monthly_format}}</span></p>
+    </div>
+
+	<!-- rent_table.html -->
+	<h2 class="w3-wide" style="border-bottom: solid 2px white;margin-top: 30px;">Properties for Rent</h2>
+	<table style="padding: 20px;">
+		<thead>
+			<tr>
+				<th>Address</th>
+				<th></th>
+				<th>Rent</th>
+				<th>Bedrooms</th>
+				<th>Bathrooms</th>
+				<th>Square Footage</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for index, row in df_rent.iterrows() %}
+			<tr>
+				<td colspan="2">{{ row['formattedAddress'] }}</td>
+				<td>${{ row['price'] }}</td>
+				<td>{{ row['bedrooms'] }}</td>
+				<td>{{ row['bathrooms'] }}</td>
+				<td>{{ row['squareFootage'] }} sq.ft.</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<h3 class="w3-wide" style="font-size:30px;border-bottom: solid 2px white;margin-top: 30px;">Properties for Sale</h3>
+	<table style="padding: 20px;">
+		<thead>
+			<tr>
+				<th>Address</th>
+				<th>Purchase Price</th>
+				<th>Monthly Mortgage</th>
+				<th>Bedrooms</th>
+				<th>Bathrooms</th>
+				<th>Square Footage</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for index, row in df_sale.iterrows() %}
+			<tr>
+				<td>{{ row['formattedAddress'] }}</td>
+				<td>${{ row['price'] }}</td>
+				<td>${{ row['monthly_mortgage'] }}</td>
+				<td>{{ row['bedrooms'] }}</td>
+				<td>{{ row['bathrooms'] }}</td>
+				<td>{{ row['squareFootage'] }} sq.ft.</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+</body>
+
+</html>

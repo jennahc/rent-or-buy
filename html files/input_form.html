@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Input Form</title>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+	/*body {background-color: #000;
+		color: #fff;
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		padding: 20px;
+		line-height: 1.6;
+	}*/
+	body {
+		background-color: #222;
+		color: #eee;
+		font-family: "Lato", sans-serif
+		}
+	.w3-top {
+		 position: fixed;
+		 top: 0;
+		 width: 100%;
+		 z-index: 2;
+		 background-color: #222
+		}
+	h1, h3, h4 {
+		margin-bottom: 20px;
+		margin-left: 20px;
+	}
+	a {
+		color: #9cdcfe;
+		margin-right: 10px;
+	}
+	a:hover {
+		color: #4ec9bo;
+	}
+	form {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 30px;
+	}
+	form .form-row {
+		flex: 1 1 auto;
+		display: flex;
+		margin-bottom: 10px;
+	}
+	form .form-row label {
+		flex: 1 1 auto;
+	}
+	form .form-row input {
+		flex: 0 0 25%;
+	}
+	form buttom {
+		width: 200px;
+    	height: 30px;
+    	background-color: #4ec9b0;
+    	border: none;
+    	color: #fff;
+    	cursor: pointer;
+    	transition: background-color 0.3s;
+    }
+    form buttom:hover {
+    	background-color: #2e9967;
+    }
+    .navigation {
+    	margin-bottom: 30px;
+    }
+    
+    .graphs img {
+    	margin-bottom: 20px;
+    }
+     input {
+ 	width: 100%;
+ 	padding: 8px 16px;
+ 	margin: 8px 0;
+ 	box-sizing: border-box;
+ 	width: 100%; 
+ 	padding 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+ 	}
+ 	input:focus {
+  	border: 3px solid #555;
+	}
+ 	option {
+ 	width: 100%;
+ 	padding: 8px 16px;
+ 	margin: 8px 0;
+ 	background-color: #f1f1f1;
+ 	box-sizing: border-box;
+ 	}
+ 	select {
+ 	width: 100%;
+ 	padding: 8px 16px;
+ 	margin: 8px 0;
+ 	border: 2px solid #ccc;
+ 	border-radius: 4px;
+ 	background-color: #f1f1f1;
+ 	box-sizing: border-box;
+ 	}
+ 	.container {
+  	border-radius: 5px;
+  	background-color: #444;
+ 	 padding: 20px;
+ 	}
+ p {
+ 	font-size: 12px
+ 	}
+	</style>
+</head>
+
+
+
+<!-- Navbar -->
+<div id="StayFocusd-infobar" style="display: none; top: 12884px;">
+		<img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
+		<span id="StayFocusd-infobar-msg"></span>
+		<span id="StayFocusd-infobar-links">
+			<a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a id="StayFocusd-infobar-hide">hide once</a>
+		</span>
+	</div>
+
+	<div class="w3-top">
+		<div class="w3-bar w3-nlack w3-card">
+			<a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
+				href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i
+					class="fa fa-bars"></i></a>
+			<a href="/index" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+			<a href="/input_form" class="w3-bar-item w3-button w3-padding-large">INPUT FORM</a>
+			<a href="/city_visuals" class="w3-bar-item w3-button w3-padding-large">CITY DATA VISUALS</a>
+			<a href="/appreciation" class="w3-bar-item w3-button w3-padding-large">APPRECIATION CALCULATOR</a>
+			<a href="/fred" class="w3-bar-item w3-button w3-padding-large">REAL ESTATE DATA</a>
+		</div>
+	</div>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+<!-- Form Section -->
+<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="input form">
+	<div class="container">
+	<h2 class="w3-wide">RENT OR BUY?</h2>
+	</div>
+	
+	<!--<h3 class="w3-opacity" id="form-header"><i>Please Enter Your Salary and Credit Score</i></h3>-->
+    
+
+    <form action="/result" method="post">
+</div>
+ <!--<style>
+ 	body {font-family: "Lato", sans-serif;
+ 		font: 20px -apple-system, sans-serif}
+	.mySlides {display: none}
+</style>-->
+ <h3>When you're ready, enter in the information below:</h3>
+ 
+ <div class="container">
+        <div class="form-row">
+            <label for="city">What is your desired city?</label>
+        <select id="city" name="city">
+            <option value="0">please select one</option>
+            <option value="Atlanta">Atlanta</option>
+            <option value="Austin">Austin</option>
+	        <option value="Boston">Boston</option>
+	        <option value="Chicago">Chicago</option>
+            <option value="Los Angeles">Los Angeles</option>
+	        <option value="New York">New York</option>
+	        <option value="Philadelphia">Philadelphia</option>
+            <option value="San Diego">San Diego</option>
+	        <option value="Seattle">Seattle</option>
+	        <option value="San Francisco">San Francisco</option>
+            <option value="San Jose">San Jose</option>
+	       	</select>
+
+        <div class="form-row">
+            <label for="city">Enter the industry you are working in (tech, finance, healthcare, etc.): </label>
+            <input type="text" id="industry" name="industry" required value="tech">
+        </div>
+        <div class="form-row">
+            <label for="salary">What is your household income per month? (no commas):</label>
+            <input type="number" id="salary" name="salary" required value="10000">
+        </div>
+        <div class="form-row">
+            <label for="credit-score">What is your credit score?</label>
+            <input type="number" id="credit-score" name="credit-score" required value="700">
+        </div>
+        <div class="form-row">
+            <label for="account">How much is in your checkings/savings account?</label>
+            <input type="number" id="account" name="account" required value="30000">
+        </div>
+        <div class="form-row">
+            <label for="spend">How much are you willing to spend on rent/mortgage as a percentage of your salary?</label>
+            <input type="text" id="spend" name="spend" required value="30">
+        </div>
+        <div class="form-row">
+            <label for="bedrooms">How many bedrooms do you want?</label>
+            <input type="text" id="bedrooms" name="bedrooms" required value="2">
+        </div>
+        <div class="form-row">
+            <label for="stay">How many years are you planning on living here? If in months, use decimals (6 months = 0.5 years)</label>
+            <input type="text" id="stay" name="stay" required value="1">
+        </div>
+        <div class="form-row">
+            <label for="married">Are you single/married?</label>
+            <select id="married" name="married">
+            <option value="0">please select one</option>
+            <option value="1">Single</option>
+            <option value="2">Married</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <label for="roommates">Are you open to having roommates? If yes, how many?</label>
+            <input type="text" id="roommates" name="roommates" required value="1">
+        </div>
+        <div class="form-row">
+            <label for="kids">How many kids do you have?</label>
+            <input type="text" id="kids" name="kids" required value="2">
+        </div>
+        <div class="form-row">
+            <label for="car">What is your monthly car payment?</label>
+            <input type="text" id="car" name="car" required value="350">
+        </div>
+        <div class="form-row">
+            <label for="loans">Do you have any student loans? If yes, how much do you pay per month (for no, enter 0)</label>
+            <input type="text" id="loans" name="loans" required value="600">
+        </div>
+        <div class="form-row">
+            <label for="save">How much do you want to save per month?</label>
+            <input type="text" id="save" name="save" required value="1000">
+        </div>
+        <div class="form-row">
+            <label for="other">Any other monthly payments/financial liabilities? If yes, please input monthly amount</label>
+            <input type="text" id="other" name="other" required value="200">
+        </div>
+       </div>
+        <!--    <div class="form-row">
+       <label for="career">What's your career type?</label>
+            <p>*please select the group that most closely matches</p>
+            <select id="career" name="career">
+            <option value="0">please select one</option>
+            <option value="1">Healthcare Professionals, Teachers, Government Workers, and Utilities Employees</option>
+            <option value="2">Business Management, Financial Services, and Engineering</option>
+	        <option value="3">Retail Sales, Hospitality and Tourism, and Construction Work</option>
+	       	</select>
+        </div>
+        <div class="form-row">
+            <label for="purpose">What's the purpose of the rental?</label>
+            <p>*please select the group that most closely matches</p>
+            <select id="purpose" name="purpose">
+            <option value="0">please select one</option>
+            <option value="1">Personal Living</option>
+            <option value="2">Commercial Usage</option>
+            <option value="3">Investment</option>
+            </select>
+        </div>-->
+
+        <button id="formSubmitButton" type="submit">SUBMIT</button>
+        
+    </form>
+
+</body>
+
+<!--
+<script>
+  console.log("TEST")
+document.getElementById("formSubmitButton").addEventListener('click', getProperties)
+let testText = ""
+function getProperties(e) {
+
+    e.preventDefault()
+    console.log("Calculating...")
+    // let formData = new FormData(document.forms.calcForm)
+
+    // console.log(formData)
+    let data = {
+        city: document.getElementById("city").value,
+        salary: parseInt(document.getElementById("salary").value),
+        "credit-score": parseInt(document.getElementById("credit-score").value),
+        account: parseInt(document.getElementById("account").value),
+        purpose: document.getElementById('purpose').value,
+        career: document.getElementById('career').value,
+        other: document.getElementById('other').value,
+        save: document.getElementById('save').value,
+        loans: document.getElementById('loans').value,
+        car: document.getElementById('car').value,
+        kids: document.getElementById('kids').value,
+        roommates: document.getElementById('roommates').value,
+        married: document.getElementById('married').value,
+        bedrooms: document.getElementById('bedrooms').value,
+        spend: document.getElementById('spend').value,
+        account: document.getElementById('account').value,
+
+    }
+
+    console.log(JSON.stringify(data))
+    fetch("/result", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+
+        
+    }).then(res => {
+      
+      return res.json()
+      })
+    // .then(text => {
+    //   newText = text
+    //   testText = newText
+    //   newText.replaceAll("NaN", "\"Nan\"")
+    //   console.log(newText)
+    //   try {
+    //     jsonData = JSON.parse(newText)
+    //   } catch (e) {
+    //     console.log(e)
+    //   }
+      
+    //   //add code to add the houses to the webpage
+    // })
+    .then(json => {
+    
+      propertyData = {
+        sale: JSON.parse(json.sale).slice(0, 10),
+        rent: JSON.parse(json.rent).slice(0, 10)
+      }
+
+      displayProperties(propertyData)
+
+
+    })
+    .catch(err => console.log(err))
+
+}
+
+
+function displayProperties(propertyData) {
+
+  
+
+    //Remove form
+    document.getElementById("calcForm").remove()
+    document.getElementById("form-header").remove()
+
+
+    // <div id="rentals-wrapper">
+    //     <h3>Rentals</h3>
+    //     <div class="rental-property-wrapper">
+    //         <div class="address">1234 street name</div>
+    //     </div>
+    //     <div class="rental-property-wrapper">
+    //         <div class="address">1234 street name</div>
+    //     </div>
+    // </div>
+    //Add section for rentals
+    let rentalsWrapper = document.createElement('div')
+    rentalsWrapper.id = "rentals-wrapper"
+
+    let rentalHeader = document.createElement('h3')
+    rentalHeader.textContent = "Rentals"
+
+    rentalsWrapper.appendChild(rentalHeader)
+    //Add rental properties
+    for (let rentalProperty of propertyData.rent) {
+        console.log(rentalProperty)
+        let rentalPropertyWrapper = document.createElement('div')
+        rentalPropertyWrapper.classList.add("rental-property-wrapper")
+
+        let rentalPropertyAddress = document.createElement('div')
+        rentalPropertyAddress.classList.add('address')
+        rentalPropertyAddress.textContent = rentalProperty.formattedAddress
+
+        let rentalPropertyPrice = document.createElement('div')
+        rentalPropertyPrice.classList.add('price')
+        rentalPropertyPrice.textContent = rentalProperty.price
+
+        rentalPropertyWrapper.appendChild(rentalPropertyAddress)
+        rentalPropertyWrapper.appendChild(rentalPropertyPrice)
+        
+        rentalsWrapper.appendChild(rentalPropertyWrapper)
+    }
+    
+    
+    document.body.appendChild(rentalsWrapper)
+    
+    //Add section for sales
+    let salesWrapper = document.createElement('div')
+        salesWrapper.id = "sales-wrapper"
+
+        let saleHeader = document.createElement('h3')
+        saleHeader.textContent = "Sales"
+
+        salesWrapper.appendChild(saleHeader)
+        //Add sale properties
+        for (let saleProperty of propertyData.sale) {
+            console.log(saleProperty)
+            let salePropertyWrapper = document.createElement('div')
+            salePropertyWrapper.classList.add("sale-property-wrapper")
+
+            let salePropertyAddress = document.createElement('div')
+            salePropertyAddress.classList.add('address')
+            salePropertyAddress.textContent = saleProperty.formattedAddress
+
+            let salePropertyPrice = document.createElement('div')
+            salePropertyPrice.classList.add('price')
+            salePropertyPrice.textContent = saleProperty.price
+
+            salePropertyWrapper.appendChild(salePropertyAddress)
+            salePropertyWrapper.appendChild(salePropertyPrice)
+            
+            salesWrapper.appendChild(salePropertyWrapper)
+        }
+        
+        
+        document.body.appendChild(salesWrapper)
+
+
+
+}
+
+
+</script>
+
+-->
+</html>

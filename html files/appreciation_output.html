@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Appreciation Calculator</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #eee;
+            font-family: "Lato", sans-serif;
+        }
+		.w3-top {
+			 position: fixed;
+			 top: 0;
+			 width: 100%;
+			 z-index: 2;
+			 background-color: #222
+		}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form .form-row {
+            flex: 1 1 auto;
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        form .form-row label {
+            flex: 1 1 auto;
+        }
+
+        form .form-row input {
+            flex: 0 0 25%;
+        }
+
+        form button {
+            width: 200px;
+            height: 30px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #666;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 16px;
+        }
+
+        p {
+            margin-bottom: 16px;
+        }
+    </style>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="w3-top">
+        <div class="w3-bar w3-nlack w3-card">
+            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
+                href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+            <a href="/index" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+            <a href="/input_form" class="w3-bar-item w3-button w3-padding-large">INPUT FORM</a>
+            <a href="/city_visuals" class="w3-bar-item w3-button w3-padding-large">CITY DATA VISUALS</a>
+            <a href="/appreciation" class="w3-bar-item w3-button w3-padding-large">APPRECIATION CALCULATOR</a>
+            <a href="/fred" class="w3-bar-item w3-button w3-padding-large">REAL ESTATE DATA</a>
+        </div>
+    </div>
+    <div style="margin-top:20px" class="container">
+        <h1>Working in big cities: Rent or Buy</h1>
+        <p>Our tool offers insightful graphs and visualizations to help you decide between renting or buying a property in major cities. With citywide trends and property-specific forecasts at your fingertips, you can confidently navigate the real estate market. Explore our visual resources to make a well-informed choice for your next home.</p>
+    
+        <br>
+        <h3>You are planning to {{ calc_str_rent_buy }} a {{ calc_bedrooms }} bedroom(s) apartments in {{ calc_city }}. Your desired {{ calc_str_rent_buy }} is ${{ calc_amount }}</h3>
+        <h3>Here is citywide data analysis for the {{ calc_bedrooms }} bedroom(s) apartments in {{ calc_city }} for {{ calc_str_rent_buy }}</h4>
+        <br>
+        <h4>This is the {{ calc_str_rent_buy }} fluctuation graph for {{ calc_city }}</h4>
+        <img class="center-block" src="data:image/png;base64, {{ images[0] }}" />
+        <h4>This is {{ calc_str_rent_buy }} forecast</h4>
+        <img class="center-block" src="data:image/png;base64, {{ images[1] }}" />
+        <h4>This is {{ calc_str_rent_buy }} growth scatter plot</h4>
+        <img class="center-block" src="data:image/png;base64, {{ images[2] }}" />
+        <h4>This is {{ calc_str_rent_buy }} forecast for your specific property</h4>
+        <img class="center-block" src="data:image/png;base64, {{ images[3] }}" />
+        <h4>This is {{ calc_str_rent_buy }} growth scatter plot for your specific property</h4>
+        <img class="center-block" src="data:image/png;base64, {{ images[4] }}" />
+    </div>
+</body>
+</html>

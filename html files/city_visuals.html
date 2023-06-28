@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>City Visuals</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		body {
+            background-color: #222;
+            color: #eee;
+            font-family: "Lato", sans-serif
+        }
+        .w3-top {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          z-index: 2;
+          background-color: #222
+        }
+		
+        .center {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+		.center p {
+			margin: 0;
+			padding: 0;
+			text-align: center;
+		}
+		.center img {
+			display: block;
+			margin: 10px auto;
+		}
+		
+        .containerx {
+			background-color: #444;
+			padding: 20px;
+			margin-bottom: 20px;
+			border-radius: 10px;
+			width: 75%;
+			margin-left: auto;
+ 			margin-right: auto;
+		}
+		img {
+			display: block;
+  			margin: 0 auto;
+  			width: 75%;
+		}
+		h3 {
+			text-align: center;
+			padding-top: 15px;
+		}
+		h2{
+			text-align: center;
+		}
+		p{
+			text-align: center;
+		}
+	</style>
+	</style>
+
+</head>
+<body>
+<div id="StayFocusd-infobar" style="display: none; top: 12884px;">
+		<img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
+		<span id="StayFocusd-infobar-msg"></span>
+		<span id="StayFocusd-infobar-links">
+			<a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a id="StayFocusd-infobar-hide">hide once</a>
+		</span>
+	</div>
+
+	<div class="w3-top">
+		<div class="w3-bar w3-nlack w3-card">
+			<a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
+				href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i
+					class="fa fa-bars"></i></a>
+			<a href="/index" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+			<a href="/input_form" class="w3-bar-item w3-button w3-padding-large">INPUT FORM</a>
+			<a href="/city_visuals" class="w3-bar-item w3-button w3-padding-large">CITY DATA VISUALS</a>
+			<a href="/appreciation" class="w3-bar-item w3-button w3-padding-large">APPRECIATION CALCULATOR</a>
+			<a href="/fred" class="w3-bar-item w3-button w3-padding-large">REAL ESTATE DATA</a>
+		</div>
+	</div>
+<div style="margin-top:20px" class="container">
+<h2 class="w3-wide" style="padding-top:40px">City Data Visuals</h2>
+</div>
+<div style="margin-top:20px" class="containerx">
+
+        <p>In order to provide you with more insights about the properties that we found for you, here are some maps for you to better understnd the lcoation of the properties</p>
+</div>
+<div style="margin-top:20px" class="container">
+
+<h3>Map of Properties Available for Rental in {{ desired_city }}</h3>
+                <img class="center-block" src="data:image/png;base64, {{ fig }}" alt="Map of Rental Properties" />
+ </div>
+ <div style="margin-top:20px" class="container">          
+ <h3>Map of Properties Available for Purchase in {{ desired_city }}</h3>
+                <img class="center-block"  src="data:image/png;base64, {{ fig2 }}" alt="Map of Rental Properties" />      
+</div>
+</body>
+</html>

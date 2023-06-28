@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Appreciation Calculator</title>
+	<style>
+        body {
+            background-color: #222;
+            color: #eee;
+            font-family: "Lato", sans-serif;
+            line-height: 1.6;
+        }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    form .form-row {
+        flex: 1 1 auto;
+        display: flex;
+        margin-bottom: 10px;
+    }
+
+    form .form-row label {
+        flex: 1 1 auto;
+    }
+
+    form .form-row input {
+        flex: 0 0 25%;
+    }
+
+    form button {
+        width: 200px;
+        height: 30px;
+        background-color: #444;
+        border: none;
+        color: #eee;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    form button:hover {
+        background-color: #666;
+    }
+
+    .graph-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+</style>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="w3-top">
+        <div class="w3-bar w3-nlack w3-card">
+            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
+                href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+            <a href="/index" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+            <a href="/input_form" class="w3-bar-item w3-button w3-padding-large">INPUT FORM</a>
+            <a href="/city_visuals" class="w3-bar-item w3-button w3-padding-large">CITY DATA VISUALS</a>
+            <a href="/appreciation" class="w3-bar-item w3-button w3-padding-large">APPRECIATION CALCULATOR</a>
+            <a href="/fred" class="w3-bar-item w3-button w3-padding-large">REAL ESTATE DATA</a>
+        </div>
+    </div>  
+    <div style="margin-top:20px" class="container">
+        <h1>Working in big cities: Rent or Buy</h1>
+    
+        <p>Explore various data visualizations for real estate trends in major cities. Use the calculator to make informed decisions about renting or buying properties.</p>
+
+        <h2>Data for {{ desired_city }} {{ bedrooms }} bedroom(s) apartments</h2>
+        <div class="graph-container">
+            <div>
+                <h3>Rental Price Fluctuation</h3>
+                <img src="data:image/png;base64, {{ images[0] }}" alt="Rental Price Fluctuation" />
+            </div>
+            <div>
+                <h3>Value Growth Scatter Plot</h3>
+                <img src="data:image/png;base64, {{ images[5] }}" alt="Value Growth Scatter Plot" />
+            </div>
+            <div>
+                <h3>Rent Growth Scatter Plot</h3>
+                <img src="data:image/png;base64, {{ images[2] }}" alt="Rent Growth Scatter Plot" />
+            </div>
+            <div>
+                <h3>Purchase Price Fluctuation</h3>
+                <img src="data:image/png;base64, {{ images[3] }}" alt="Purchase Price Fluctuation" />
+            </div>
+            <div>
+                <h3>Value Appreciation Forecast</h3>
+                <img src="data:image/png;base64, {{ images[4] }}" alt="Value Appreciation Forecast" />
+            </div>
+            <div>
+                <h3>Rental Forecast</h3>
+                <img src="data:image/png;base64, {{ images[1] }}" alt="Rental Forecast" />
+            </div>
+        </div>        
+
+            <h3>Customized Calculator: Choose your desired city and number of bedrooms</h3>
+            <form action="/appreciation_custom" method="post">
+                <!--<form id="calcForm" action="none"> -->
+                <div class="form-row">
+                    <label for="city">What city is your property located in?</label>
+                    <input type="text" id="city" name="city" required value="Chicago">
+                </div>
+                <div class="form-row">
+                    <label for="bedrooms">How many bedrooms does your desired property have?</label>
+                    <input type="text" id="bedrooms" name="bedrooms" required value="2">
+                </div>
+                <div class="form-row">
+                    <label for="rent_buy">Are you looking to buy or rent your property? (input 1 for rent, 2 for buy)</label>
+                    <input type="text" id="rent_buy" name="rent_buy" required value="1">
+                </div>
+                <div class="form-row">
+                    <label for="amount">Input the Rent/Purchase Price Amount</label>
+                    <input type="text" id="amount" name="amount" required value="2000">
+                </div>
+                
+                <button id="formSubmitButton" type="submit">Submit</button>
+            </form>
+        </div>
+    </body>
+    </html>
